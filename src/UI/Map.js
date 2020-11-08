@@ -1,22 +1,22 @@
 export class Map {
   constructor(coords) {
-    this.coordinates = coords;
-    this.render();
+    // this.coordinates = coords;
+    this.render(coords);
   }
 
-  render() {
+  render(coordinates) {
     if (!google) {
       alert('Не можем загрузить карту попробуйте позже');
       return;
     }
 
     const map = new google.maps.Map(document.getElementById('map'), {
-      center: this.coordinates,
+      center: coordinates,
       zoom: 16,
     });
 
     new google.maps.Marker({
-      position: this.coordinates,
+      position: coordinates,
       map: map,
     });
   }
