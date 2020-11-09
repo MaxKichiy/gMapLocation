@@ -16,7 +16,7 @@ export class Modal {
       document.body.insertAdjacentElement('afterbegin', this.modalElement);
       document.body.insertAdjacentElement('afterbegin', this.backdropElement);
     } else {
-      alert(' ');
+      alert('К сожалению некоторые функции не поддреживаются в вашем браузере.');
     }
   }
 
