@@ -1,0 +1,21 @@
+{
+  "name": "jsTraine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "traine.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.5.3"
+  },
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3"
+  }
+}

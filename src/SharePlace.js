@@ -36,12 +36,25 @@ class PlaceFinder {
     } else {
       this.map = new Map(coordinates);
     }
-
-    this.shareBtn.disabled = false;
-    const sharedLinkInputElement = document.getElementById('share-link');
-    sharedLinkInputElement.value = `${location.origin}/my-place?address=${encodeURI(address)}&lat=${
-      coordinates.lat
-    }&lng=${coordinates.lng}`;
+    fetch('http://localhost:3331/add-location', {
+      method: 'POST',
+      body: JSON.stringify({
+        address: address,
+        coordinates: coordinates,
+      }),
+      headers: {
+        'Content-type': 'application/json',
+      },
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        const locationId = data.locId;
+        this.shareBtn.disabled = false;
+        const sharedLinkInputElement = document.getElementById('share-link');
+        sharedLinkInputElement.value = `${location.origin}/my-place?location=${locationId}`;
+      });
   }
 
   locateUserHandler() {
